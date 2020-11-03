@@ -6,15 +6,16 @@
     <title>Odin - Javascript - Paper-Rock-Scissors</title>
 </head>
 <body>
+    
     <script>
+        let playerScore = 0;
+        let computerScore = 0;
 
         function game() {
             function computerPlay() {
-               //Sets choices for computer
-            const choice = ["paper", "rock", "scissors"];  
+                const choice = ["paper", "rock", "scissors", "thermonuclear device"];  
 
-                //Randomly select from one of the items in choice array
-            const random = Math.floor(Math.random() * choice.length);
+                const random = Math.floor(Math.random() * choice.length);
                 return choice[random];  
             }    
 
@@ -23,32 +24,50 @@
             const computerSelection = computerPlay();
 
             function playRound(playerSelection, computerSelection) {
+
                 if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
-                return "Tied! Play again...";
+                return "Tied! Play again! You: " + playerScore + " | Computer: " + computerScore;
+
                 } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "PAPER") {
-                    return "Paper covers rock, YOU LOSE!";
+                    computerScore ++;
+                    return "Paper covers rock, YOU LOSE! You: " + playerScore + " | Computer: " + computerScore;
+
                 } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "SCISSORS") {
-                    return "Rock smashes scissors, YOU WIN!";
+                    playerScore ++;
+                    return "Rock smashes scissors, YOU WIN! You: " + playerScore + " | Computer: " + computerScore;
+
                 } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "ROCK") {
-                    return "Paper covers rock, YOU WIN!";
+                    playerScore ++;
+                    return "Paper covers rock, YOU WIN! You: " + playerScore + " | Computer: " + computerScore;
+
                 } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "SCISSORS") {
-                    return "Scissors cut paper, YOU LOSE!";
+                    computerScore ++;
+                    return "Scissors cut paper, YOU LOSE! You: " + playerScore + " | Computer: " + computerScore;
+
                 } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "ROCK") {
-                    return "Rock smashes scissors, YOU LOSE!";
+                    computerScore ++;
+                    return "Rock smashes scissors, YOU LOSE! You: " + playerScore + " | Computer: " + computerScore;
+
                 } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "PAPER") {
-                    return "Scissors cut paper, YOU WIN!";
+                    playerScore ++; return "Scissors cut paper, YOU WIN! You: " + playerScore + " | Computer: " + computerScore;
+
+                } else if (computerSelection === "thermonuclear device") {
+                    return "Thermonuclear device destroys planet...EVERYBODY LOSES!!! You: " + playerScore + " | Computer: " + computerScore;
+
                 } else {
                     return "That doesn't make sense. Try again.";
                 }
             }   
-            console.log(playerSelection, computerSelection);
+
+            console.log("You chose " + playerSelection + ".");
+            console.log("Computer chose " + computerSelection + ".")
             console.log(playRound(playerSelection, computerSelection));
         }
              
-    var i;
-    for (i = 0; i < 5; i++) {
-        game ();
-    }
+        var i;
+        for (i = 0; i < 5; i++) {
+            game ();
+        }
 
     </script>
 </body>
