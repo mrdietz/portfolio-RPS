@@ -1,68 +1,56 @@
 
 let playerScore = 0;
 let computerScore = 0;
-function assignPlayerSelection(choice) {
-    let playerSelection = choice;
-    return playerSelection;
-};
-console.log(playerSelection);
 
-function game() {
+const playerChoice = document.querySelectorAll(".btn");
+playerChoice.forEach((button) => button.addEventListener("click", game));
+
+function game(e) {
     function computerPlay() {
-        const choice = ["paper", "rock", "scissors", "thermonuclear device"];  
+        const compChoice = ["paper", "rock", "scissors"];  
+        const random = Math.floor(Math.random() * compChoice.length);
+        return compChoice[random];  
+    }
 
-        const random = Math.floor(Math.random() * choice.length);
-        return choice[random];  
-    }    
-
-    // const playerSelection = prompt("Pick one: Paper, Rock, or Scissors?");
-    
-
+    let playerSelection = e.target.value;
     const computerSelection = computerPlay();
 
-    function playRound(playerSelection, computerSelection) {
+    let result = (function playRound(playerSelection, computerSelection) {
+        if (playerSelection === computerSelection) {
+        return "tie";
+        
+        } else if ((playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock")) {
+            playerScore ++; 
+            return "pWin";
 
-        if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
-        return "Tied! Play again! You: " + playerScore + " | Computer: " + computerScore;
-
-        } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "PAPER") {
+        } else if ((playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock") || (playerSelection === "rock" && computerSelection === "paper")) {
             computerScore ++;
-            return "Paper covers rock, YOU LOSE! You: " + playerScore + " | Computer: " + computerScore;
-
-        } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toUpperCase() === "SCISSORS") {
-            playerScore ++;
-            return "Rock smashes scissors, YOU WIN! You: " + playerScore + " | Computer: " + computerScore;
-
-        } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "ROCK") {
-            playerScore ++;
-            return "Paper covers rock, YOU WIN! You: " + playerScore + " | Computer: " + computerScore;
-
-        } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toUpperCase() === "SCISSORS") {
-            computerScore ++;
-            return "Scissors cut paper, YOU LOSE! You: " + playerScore + " | Computer: " + computerScore;
-
-        } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "ROCK") {
-            computerScore ++;
-            return "Rock smashes scissors, YOU LOSE! You: " + playerScore + " | Computer: " + computerScore;
-
-        } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toUpperCase() === "PAPER") {
-            playerScore ++; return "Scissors cut paper, YOU WIN! You: " + playerScore + " | Computer: " + computerScore;
-
-        } else if (computerSelection === "thermonuclear device") {
-            return "Thermonuclear device destroys planet...EVERYBODY LOSES!!! You: " + playerScore + " | Computer: " + computerScore;
-
-        } else {
-            return "That doesn't make sense. Try again.";
+            return "cWin";
         }
-    }   
+    })();
+document.getElementById("pScore").innerHTML = playerScore;
+    if (result === "tie") {
+        document.getElementById("pChoice").innerHTML = playerSelection;
+        document.getElementById("cChoice").innerHTML = computerSelection;
+        document.getElementById("message").innerHTML = "Tie, you're both losers!";
 
-    console.log("You chose " + playerSelection + ".");
-    console.log("Computer chose " + computerSelection + ".")
-    console.log(playRound(playerSelection, computerSelection));
+    } else if (result === "pWin") {
+        document.getElementById("pChoice").innerHTML = playerSelection;
+        document.getElementById("cChoice").innerHTML = computerSelection;
+        document.getElementById("message").innerHTML = "Despite what I've heard, you're a real winner!";
+
+    } else if (result === "cWin") {
+        document.getElementById("pChoice").innerHTML = playerSelection;
+        document.getElementById("cChoice").innerHTML = computerSelection;
+        document.getElementById("message").innerHTML = "You disappoint me...again.";
+    } 
+
+    // console.log("You chose " + playerSelection + ".");
+    // console.log("Computer chose " + computerSelection + ".")
+    // console.log(playRound(playerSelection, computerSelection));
 }
         
-var i;
-for (i = 0; i < 5; i++) {
-    game ();
-}
-
+// var i;
+// for (i = 0; i < 5; i++) {
+//     game ();
+// }

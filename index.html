@@ -6,23 +6,19 @@
     <title>Odin - Javascript - Paper-Rock-Scissors</title>
 </head>
 <body>
+    
     <p>SCORE<p>
-    <p>Computer: 0</p>
-    <p>You: 0</p>
+    <p>Computer: <span id="cScore">0</span></p>
+    <p>You: <span id="pScore">0</span></p>
+    
+    <button class="btn" id="rock-btn" value="rock">Rock</button>
+    <button class="btn" id="paper-btn" value="paper">Paper</button>
+    <button class="btn" id="scissors-btn" value="scissors">Scissors</button>
+    
+    <p>You chose: <span id="pChoice"></span></p>
+    <p>Computer chose: <span id="cChoice"></span></p>
 
-    <form id="playerSelection">
-        <input type="radio" id="rock" name="choice" value="rock">
-        <label for="rock">Rock</label><br>
-        <input type="radio" id="paper" name="choice" value="paper">
-        <label for="paper">Paper</label><br>
-        <input type="radio" id="scissors" name="choice" value="scissors">
-        <label for="scissors">Scissors</label><br>
-        <input type="submit" onClick="assignPlayerSelection()" value="Go!">
-    </form>
-
-    <p>Computer chose: _____</p>
-
-    <p>Message (You win/You lose)</p>
+    <p id="message">Message here</p>
 
     <script src="script.js"></script>
 </body>
