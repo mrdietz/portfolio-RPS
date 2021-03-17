@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
     <title>Odin - Javascript - Paper-Rock-Scissors</title>
 </head>
 <body>
-    
-    <p>Computer: <span id="cScore">0</span></p>
-    <p>You: <span id="pScore">0</span></p>
-    
-    <button class="btn" id="rock-btn" value="rock">Rock</button>
-    <button class="btn" id="paper-btn" value="paper">Paper</button>
-    <button class="btn" id="scissors-btn" value="scissors">Scissors</button>
-    
-    <p>You chose: <span id="pChoice"></span></p>
-    <p>Computer chose: <span id="cChoice"></span></p>
+    <div class="content">
+        <div id="scoreboard">
+            <div id="cScoreName">
+                Computer<br><span id="cScore">0</span>
+            </div>
+            <div id="pScoreName">
+                You<br><span id="pScore">0</span>
+            </div>
+        </div>
+        
+        <button class="btn" id="rock-btn" value="rock">Rock</button>
+        <button class="btn" id="paper-btn" value="paper">Paper</button>
+        <button class="btn" id="scissors-btn" value="scissors">Scissors</button>
+        
+        <p>You chose: <span id="pChoice"></span></p>
+        <p>Computer chose: <span id="cChoice"></span></p>
 
-    <p id="message"></p>
+        <p id="message"></p>
 
-    <p id="gameover"></p>
-
+        <p id="gameover"></p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
