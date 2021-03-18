@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
-    <title>Odin - Javascript - Paper-Rock-Scissors</title>
+    <script src="https://kit.fontawesome.com/41b668fa3e.js" crossorigin="anonymous"></script>
+    <title>Paper-Rock-Scissors</title>
 </head>
 <body>
     <div class="content">
@@ -16,17 +17,24 @@
                 You<br><span id="pScore">0</span>
             </div>
         </div>
-        
-        <button class="btn" id="rock-btn" value="rock">Rock</button>
-        <button class="btn" id="paper-btn" value="paper">Paper</button>
-        <button class="btn" id="scissors-btn" value="scissors">Scissors</button>
-        
-        <p>You chose: <span id="pChoice"></span></p>
-        <p>Computer chose: <span id="cChoice"></span></p>
-
-        <p id="message"></p>
-
-        <p id="gameover"></p>
+        <div id="buttons">
+            <i class="btn fas fa-hand-rock" id="rock-btn" value="rock"></i>
+            <i class="btn fas fa-hand-paper" id="paper-btn" value="paper"></i>
+            <i class="btn fas fa-hand-scissors" id="scissors-btn" value="scissors"></i>
+        </div>
+        <div id="messages">
+            <div id="info">
+                <div id="you">
+                    <p>You chose:<br><span id="pChoice">&nbsp;</span></p>
+                </div>
+                <div id="comp">
+                    <p>Computer chose:<br><span id="cChoice">&nbsp;</span></p>
+                </div>
+            </div>
+            <p id="message"></p>
+            <p id="gameover"></p>
+            <button class="play-again">Another Round!</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

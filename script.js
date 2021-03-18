@@ -1,9 +1,10 @@
 
 let playerScore = 0;
 let computerScore = 0;
+const buttonPlayAgain = document.querySelector('.play-again');
 
 const playerChoice = document.querySelectorAll(".btn");
-playerChoice.forEach((button) => button.addEventListener("click", game));
+playerChoice.forEach((i) => i.addEventListener("click", game));
 
 function game(e) {
 
@@ -13,7 +14,7 @@ function game(e) {
         return compChoice[random];  
     };
 
-    let playerSelection = e.target.value;
+    let playerSelection = e.target.attributes[2].nodeValue;
     let computerSelection = computerPlay();
     let result;
 
@@ -37,10 +38,29 @@ function game(e) {
     document.getElementById("pChoice").innerHTML = playerSelection;
     document.getElementById("cChoice").innerHTML = computerSelection;
 
-    if ((computerScore == 5) || (playerScore == 5)) {
-        document.getElementById("gameover").innerHTML = "GAME OVER!";
-        document.getElementsByClassName("btn")[0].disabled = true;
-        document.getElementsByClassName("btn")[1].disabled = true;
-        document.getElementsByClassName("btn")[2].disabled = true;
+    function disableBtn() {
+        var element = document.getElementsByClassName("btn");
+        console.log(element);
+        var i;
+        for (i = 0; i < element.length; i++) {
+        element[i].classList.remove("btn");
+        }
     }
+    
+    if ((computerScore == 5) || (playerScore == 5)) {
+        disableBtn();
+        // document.getElementById("gameover").innerHTML = "GAME OVER!";
+        // document.getElementsByClassName("btn").classList.remove("btn");
+        // document.getElementsByClassName("btn")[1].disabled = true;
+        // document.getElementsByClassName("btn")[2].disabled = true;
+        // buttonPlayAgain.style.visibility = 'visible';
+        // console.log(document.getElementsByClassName("btn")[2])
+    }
+    resetGame();
+    
+    function resetGame() {
+    buttonPlayAgain.addEventListener('click', () => {
+        window.location.reload();
+    });
 };
+}
