@@ -16,19 +16,15 @@ function game(e) {
 
     let playerSelection = e.target.attributes[2].nodeValue;
     let computerSelection = computerPlay();
-    let result;
 
     if (playerSelection == computerSelection) {
-    result = "tie";
     document.getElementById("message").innerHTML = "Tie, you're both losers!";
 
     } else if ((playerSelection == "scissors" && computerSelection == "paper") || (playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" && computerSelection == "rock")) {
-        result = "pWin";
         playerScore ++; 
         document.getElementById("message").innerHTML = "Despite what I've heard, you're a real winner!";
 
     } else if ((playerSelection == "paper" && computerSelection == "scissors") || (playerSelection == "scissors" && computerSelection == "rock") || (playerSelection == "rock" && computerSelection == "paper")) {
-        result = "cWin";
         computerScore ++;
         document.getElementById("message").innerHTML = "You disappoint me...again.";
     }
@@ -40,22 +36,17 @@ function game(e) {
 
     function disableBtn() {
         var element = document.getElementsByClassName("btn");
-        console.log(element);
         var i;
         for (i = 0; i < element.length; i++) {
-        element[i].classList.remove("btn");
+        element[i].removeEventListener("click", game);
+        buttonPlayAgain.style.visibility = 'visible';
         }
     }
     
     if ((computerScore == 5) || (playerScore == 5)) {
         disableBtn();
-        // document.getElementById("gameover").innerHTML = "GAME OVER!";
-        // document.getElementsByClassName("btn").classList.remove("btn");
-        // document.getElementsByClassName("btn")[1].disabled = true;
-        // document.getElementsByClassName("btn")[2].disabled = true;
-        // buttonPlayAgain.style.visibility = 'visible';
-        // console.log(document.getElementsByClassName("btn")[2])
     }
+
     resetGame();
     
     function resetGame() {
