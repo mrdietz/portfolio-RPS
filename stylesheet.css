@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Times Square';
-    src: url('/font/TimesSquare/TimesSquare.eot');
-    src: url('/font/TimesSquare/TimesSquare.eot?#iefix') format('embedded-opentype'),
-        url('/font/TimesSquare/TimesSquare.woff2') format('woff2'),
-        url('/font/TimesSquare/TimesSquare.woff') format('woff'),
-        url('/font/TimesSquare/TimesSquare.ttf') format('truetype'),
-        url('/font/TimesSquare/TimesSquare.svg#TimesSquare') format('svg');
+    src: url('font/TimesSquare/TimesSquare.eot');
+    src: url('font/TimesSquare/TimesSquare.eot?#iefix') format('embedded-opentype'),
+        url('font/TimesSquare/TimesSquare.woff2') format('woff2'),
+        url('font/TimesSquare/TimesSquare.woff') format('woff'),
+        url('font/TimesSquare/TimesSquare.ttf') format('truetype'),
+        url('font/TimesSquare/TimesSquare.svg#TimesSquare') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -13,12 +13,12 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('/font/MontserratMedium/Montserrat-Medium.eot');
-    src: url('/font/MontserratMedium/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
-        url('/font/MontserratMedium/Montserrat-Medium.woff2') format('woff2'),
-        url('/font/MontserratMedium/Montserrat-Medium.woff') format('woff'),
-        url('/font/MontserratMedium/Montserrat-Medium.ttf') format('truetype'),
-        url('/font/MontserratMedium/Montserrat-Medium.svg#Montserrat-Medium') format('svg');
+    src: url('font/MontserratMedium/Montserrat-Medium.eot');
+    src: url('font/MontserratMedium/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
+        url('font/MontserratMedium/Montserrat-Medium.woff2') format('woff2'),
+        url('font/MontserratMedium/Montserrat-Medium.woff') format('woff'),
+        url('font/MontserratMedium/Montserrat-Medium.ttf') format('truetype'),
+        url('font/MontserratMedium/Montserrat-Medium.svg#Montserrat-Medium') format('svg');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
